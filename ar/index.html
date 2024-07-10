@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selector</title>
+    <script>
+        // Function to handle Arabic selection
+        function selectArabic() {
+            console.log("Arabic selected");
+            // Add your custom actions for Arabic selection here
+        }
+
+        // Function to handle English selection
+        function selectEnglish() {
+            console.log("English selected");
+            // Add your custom actions for English selection here
+        }
+
+        // Function to handle Rohingya selection
+        function selectRohingya() {
+            console.log("Rohingya selected");
+            // Add your custom actions for Rohingya selection here
+        }
+
+        // Function to handle the language selection
+        function handleLanguageSelection(language) {
+            if (language === 'arabic') {
+                selectArabic();
+            } else if (language === 'english') {
+                selectEnglish();
+            } else if (language === 'rohingya') {
+                selectRohingya();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Select Language</h1>
+    <select onchange="handleLanguageSelection(this.value)">
+        <option value="arabic" selected>Arabic</option>
+        <option value="english">English</option>
+        <option value="rohingya">Rohingya</option>
+    </select>
+</body>
+</html>
