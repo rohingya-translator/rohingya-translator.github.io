@@ -508,11 +508,7 @@ text-align: center;
 <section class="container section section__height" id="home">
 <!--<h2 class="section__title">المترجم</h2>-->
  <div class="container1 container1_mybtn">
-<select onchange="handleLanguageSelection(this.value)">
-        <option value="arabic" selected>عربي إلى روهينغي</option>
-        <option value="english">إنغليزي إلى روهينغي</option>
-        <option value="rohingya">روهينغي إلى إنغليزي</option>
-    </select>
+	 
 <div class="translation-box">
 <textarea id="inputText" placeholder="أكتب النص هنا"></textarea>
 </div>
@@ -672,40 +668,7 @@ text-align: center;
 </main>
 
 
-<script>
-// Load Arabic script by default
-window.onload = function() {
-loadScript('assets/translatorjs/Arabic2Rohingya.js');
-};
-
-// Function to load a script dynamically
-function loadScript(scriptName) {
-// Remove any previously loaded scripts except arabic.js
-const existingScripts = document.querySelectorAll('script[data-dynamic]');
-existingScripts.forEach(script => {
-if (script.src.indexOf('assets/translatorjs/Arabic2Rohingya.js') === -1) {
-script.remove();
-}
-});
-
-var script = document.createElement('script');
-script.src = scriptName;
-script.type = 'text/javascript';
-script.setAttribute('data-dynamic', 'true');
-document.head.appendChild(script);
-}
-
-// Function to handle language selection
-function handleLanguageSelection(language) {
-if (language === 'arabic') {
-loadScript('assets/translatorjs/Arabic2Rohingya.js');
-} else if (language === 'english') {
-loadScript('assets/translatorjs/Arabic2Rohingya.js');
-} else if (language === 'rohingya') {
-loadScript('assets/translatorjs/Arabic2Rohingya.js');
-}
-}
-</script>
+<script src="assets/translatorjs/Arabic2Rohingya.js"></script>
 
 
 <!--=============== MAIN JS ===============-->
