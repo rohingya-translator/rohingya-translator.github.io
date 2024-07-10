@@ -507,6 +507,11 @@ text-align: center;
 <!--=============== HOME ===============-->
 <section class="container section section__height" id="home">
 <!--<h2 class="section__title">المترجم</h2>-->
+
+<a class="mybtn" href="#" onclick="return show('Page1','Page2');">Show Entry</a>
+    <a class="mybtn" href="#" onclick="return show('Page2','Page1');">Show Table</a>
+
+<div id="Page1">
  <div class="container1 container1_mybtn">
 	 
 <div class="translation-box">
@@ -518,6 +523,22 @@ text-align: center;
 </div>
   </div>
 </div>
+</div>
+
+  <div id="Page2" style="display:none">
+<div class="container1 container1_mybtn">
+	 
+<div class="translation-box">
+<textarea id="inputText" placeholder="أكتب النص هنا"></textarea>
+</div>
+<button onclick="translateText()" id="btn" class="mybtn">ترجم ( يوت سيب )</button>
+<div id="translated-box">
+<textarea readonly id="outputText" placeholder="كين أسوس"></textarea>
+</div>
+  </div>
+</div>
+</div>
+
 </section>
 
 <!--=============== ADD ===============-->
