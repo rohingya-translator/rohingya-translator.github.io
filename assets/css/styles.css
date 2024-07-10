@@ -674,3 +674,46 @@ height:80px;
     opacity: 1;
   }
 }
+
+#search-container {
+text-align: center;
+margin-bottom: 20px;
+}
+table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0px;
+border-radius: 10px;
+border: 1px solid #ddd;
+overflow: hidden;
+}
+table, th, td {
+border: 1px solid #ddd;
+}
+th, td {
+padding: 10px;
+text-align: left;
+}
+th, td:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+#pagination {
+text-align: center;
+margin-top: 20px;
+}
+.page-number {
+cursor: pointer;
+margin: 5px;
+padding: 5px 10px;
+display: inline-block;
+border-radius: 10px;
+border: 1px solid #ddd;
+}
+.page-number:hover {
+cursor: pointer;
+margin: 5px;
+padding: 5px 10px;
+display: inline-block;
+border-radius: 10px;
+background: rgba(0, 0, 0, 0.04);
+}
