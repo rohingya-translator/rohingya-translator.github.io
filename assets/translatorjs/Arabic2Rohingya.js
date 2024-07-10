@@ -1,4 +1,3 @@
-<script>
 function translateText() {
 let inputText = document.getElementById('inputText').value;
 let outputText = translate(inputText); // Replace with your translation function
@@ -8774,5 +8773,3 @@ let translatedText = words.map(word => translations[word.toLowerCase()] || word)
 
 return translatedText;
 }
-
-</script>
