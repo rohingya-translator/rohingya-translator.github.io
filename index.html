@@ -1,269 +1,746 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--========== BOX ICONS ==========-->
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <!--========== CSS ==========-->
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <title>Sumber Jasa</title>
-        <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
-        <style>
-        /* About Start */
-        .container1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            padding-bottom: 20px;
-        }
+<html dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Responsive bottom navigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+@import url("");
 
-        .nombre{
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-size: 2rem;
-            color: #E51954;
-        }
-        .container1_mybtn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            text-align: center;
-            gap: 20px;
-        }
+/* =============== VARIABLES CSS =============== */
+:root {
+ --header-height: 3rem;
+ /* ========== Colors ========== */
+ --hue: 174;
+ --sat: 63%;
+ --first-color: #db2238;
+ --first-color-alt: #db2238;
+ --title-color: hsl(var(--hue), 12%, 15%);
+ --text-color: hsl(var(--hue), 8%, 35%);
+ --body-color: hsl(var(--hue), 100%, 99%);
+ --container-color: #FFF;
+ /* ========== Font and typography ========== */
+ --body-font: Rubik;
+ --h1-font-size: 1.5rem;
+ --normal-font-size: .938rem;
+ --tiny-font-size: .625rem;
+ /* ========== z index ========== */
+ --z-tooltip: 10;
+ --z-fixed: 100;
+}
 
-        .mybtn {
-            background-color: #f9f9f9;
-            min-width: 60%;
-            padding: .75rem 1rem;
-            align-items: center;
-            text-decoration: none;
-            color: #000;
-            transition-duration: 0.7s;
-            font-size: 1rem;
-            border-radius: 10px;
-        border: 1px solid #ddd;
-        cursor: pointer;
-        }
+@media screen and (min-width: 968px) {
+ :root {
+  --h1-font-size: 2.25rem;
+  --normal-font-size: 1rem;
+ }
+}
 
-        .mybtn:hover{
-        border: 1px solid #bbb;
-            background-color: transparent;
-            transition-duration: 0.7s;
-        /*#393E46*/
-        }
+/* =============== BASE =============== */
+* {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+}
 
-        .mybtn:focus {
-           outline: 0;
-        }
+html {
+ scroll-behavior: smooth;
+}
 
-        .mybtn:hover .tooltip {
-           transform: translate(-50%, 1%);
-           opacity: 0.9;
-        }
+body {
+ margin: var(--header-height) 0 0 0;
+ font-family: var(--body-font);
+ font-size: var(--normal-font-size);
+ background-color: var(--body-color);
+ color: var(--text-color);
+}
 
-        .tooltip {
-           background-color: #db2238;
-           border-radius: 10px;
-           color: #fff;
-           font-weight: 300;
-           padding: .75rem 1rem;
-           position: absolute;
-           bottom: 0;
-           left: 50%;
-           opacity: 0;
-           transform: translate(-50%, 50%);
-           transition: all 0.5s ease;
-           text-align: center;
-           white-space: nowrap;
-        }
+ul {
+ list-style: none;
+}
 
-        /* About Over */
+a {
+text-decoration: none;
+color:red;
+}
 
-        textarea {
-           display: block;
-           margin: 1rem;
-           width: 70vw;
-           height: 20vh;
-           padding: 1rem;
-           box-sizing: border-box;
-           justify-content: center;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        resize: none;
-        	}
-        </style>
-    </head>
-    <body>
-        <!--========== SCROLL TOP ==========-->
-        <a href="#" class="scrolltop" id="scroll-top"> <i class='bx bx-up-arrow-alt scrolltop__icon'></i> </a>
-        <!--========== HEADER ==========-->
-        <header class="l-header" id="header">
-            <nav class="nav bd-container">
-                <a href="#" class="nav__logo" style="font-size: 30px;">مترجم روهينغي</a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">الرئيسية</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#decoration" class="nav__link">الترجمة</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#accessory" class="nav__link">القاموس</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#pembayaran" class="nav__link">اللغات</a>
-                        </li>
-                        <li>
-                            <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </nav>
-        </header>
-        <main class="l-main">
-            <!--========== HOME ==========-->
-            <section class="home" id="home">
-                <div class="home__container bd-container bd-grid">
-                    <div class="home__img">
-                        <img src="assets/img/orang2.png" alt="">
-                    </div>
-                    <div class="home__data">
-                        <h1 class="home__title">مترجم روهينغي</h1>
-                        <p class="home__description">إعادة إحياء اللغة&nbsp;للحفاظ على التراث، وتمكين الأجيال القادمة.</p>
-                        <a href="https://wa.me/082145764680" class="button">دعم المبرمج</a>
-                    </div>
-                </div>
-            </section>
-            <!--========== SHARE ==========-->
-            <section class="share section bd-container" id="share">
-                <div class="share__container bd-grid">
-                    <div class="share__data">
-                        <h2 class="section-title-center">وصف عن المترجم:</h2>
-                        <p class="share__description">موقع مترجم روهينغي لتعلم اللغة الروهينغية والقاموس والدورات والاختبارات للغة الروهينغية.</p>
-                        <p class="share__description">إنه أول مشروع للترجمة الروهينغية على الإطلاق، مما يوفر مورداً لا يقدر بثمن للمجتمع الروهينغي للتواصل مع العالم والحفاظ على لغتهم. يمكن للمستخدمين بسهولة ترجمة الكلمات والعبارات، والبحث عن التعريفات في القاموس، والالتحاق بدورات إلكترونية لتعلم أشياء جديدة، واختبار معرفتهم من خلال اختبارات تفاعلية.</p>
-                        <a href="https://wa.me/082145764680" class="button">دعم المبرمج</a>
-                    </div>
-                    <div class="share__img">
-                        <img src="assets/img/orang.png" alt="">
-                    </div>
-                </div>
-            </section>
-            <!--========== DECORATION ==========-->
-            <section class="decoration section bd-container" id="decoration">
-                <h2 class="section-title">الترجمة</h2>
-                <div class="container1 container1_mybtn">
-                <div class="translation-box">
-                           <textarea id="input-text" placeholder="أكتب النص هنا"></textarea>
-                       </div>
-                <button id="btn" class="mybtn">ترجم ( يوت سيب )</button>
-                       <div id="translated-box">
-                           <textarea readonly id="output-text" placeholder="كين أسوس"></textarea>
-                       </div>
-                     </div>
-            </section>
-            <!--========== ACCESSORIES ==========-->
-            <section class="accessory section bd-container" id="accessory">
-                <h2 class="section-title">القاموس</h2>
+img {
+ max-width: 100%;
+ height: auto;
+}
 
-            </section>
-            <!-- Pembayaran -->
-            <section class="accessory section bd-container" id="pembayaran">
-                <h2 class="section-title">اللغات:</h2>
-                <div class="accessory__container bd-grid">
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">روهينغاروبي</h3>
-                    </div>
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">العربية</h3>
-                    </div>
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">الإنغليزية</h3>
-                        <h3 class="accessory__title" style="text-align: center;">الإنغليزية</h3>
-                    </div>
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">روهينغاليش</h3>
-                    </div>
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">أردو (قريبا)</h3>
-                    </div>
-                    <div class="accessory__content">
-                        <h3 class="accessory__title" style="text-align: center;">بنغالي</h3>
-                    </div>
-                </div>
-            </section>
-            <!--========== fAQ ==========-->
-            <section class="send section" id="faq">
-                <div class="send__container bd-container bd-grid">
-                    <div class="send__content">
-                        <h2 class="section-title-center send__title">من أنا؟</h2>
-                        <p class="send__description">الإجابة الطويلة والمملة هنا</p>
-                        <form action="">
-                            <div class="send__direction">
-                                <a href="https://wa.me/082145764680" class="button">المتجر</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="send__img">
-                        <img src="assets/img/faq.png">
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!--========== FOOTER ==========-->
-        <footer class="footer section">
-            <div class="footer__container bd-container bd-grid">
-                <div class="footer__content">
-                    <h3 class="footer__title"> <a href="#" class="footer__logo">مترجم روهينغي</a> </h3>
-                    <p class="footer__description">لبيع المنتجات و الخدمات الرقمية و متخصصين في تسهيل المواقع والخدمات الإلكترونية والتجارة والتسويق الإلكتروني.<br><br> <strong>مترجم روهينغي</strong>  2024</p>
-                </div>
-                <div class="footer__content">
-                    <h3 class="footer__title">الروابط الداخلية</h3>
-                    <ul>
-                        <li>
-                            <a href="#decoration" class="footer__link">الخدمات</a>
-                        </li>
-                        <li>
-                            <a href="#accessory" class="footer__link">المنتجات</a>
-                        </li>
-                        <li>
-                            <a href="#pembayaran" class="footer__link">اللغات</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__content">
-                    <h3 class="footer__title">الروابط</h3>
-                    <ul>
-                        <li>
-                            <a href="#" class="footer__link">عنا</a>
-                        </li>
-                        <li>
-                            <a href="#faq" class="footer__link">الأسئلة الشائعة</a>
-                        </li>
-                        <li>
-                            <a href="#" class="footer__link">الشروط والأحكام</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__content">
-                    <h3 class="footer__title">تابعنا</h3>
-                    <a href="https://wa.me/082145764680" class="footer__social"><i class='bx bxl-whatsapp'></i></a>
-                    <a href="https://www.instagram.com/sumber.jasa/" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
-                </div>
-            </div>
-            <p class="footer__copy">&copy; كافة الحقوق محفوظة ل مترجم روهينغي</p>
-        </footer>
-        <!--========== SCROLL REVEAL ==========-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <!--========== MAIN JS ==========-->
-        <script src="assets/js/main.js"></script>
-    </body>
+/* =============== REUSABLE CSS CLASSES =============== */
+.section {
+ padding: 4.5rem 0 2rem;
+}
+
+.section__title {
+ font-size: var(--h1-font-size);
+ color: var(--title-color);
+ text-align: center;
+ margin-bottom: 1.5rem;
+}
+
+.section__height {
+ height: 100vh;
+}
+
+/* =============== LAYOUT =============== */
+.container {
+ max-width: 968px;
+ margin-left: 1rem;
+ margin-right: 1rem;
+}
+
+/* =============== HEADER =============== */
+.header {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ background-color: var(--container-color);
+ z-index: var(--z-fixed);
+ transition: .4s;
+ border-bottom: 1px solid #ddd;
+}
+
+.header::before {
+background: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRMjfDGV6gz3qHBgP24ozod0CrRZ4NsXhqTaFMB8tr7JCqL2WMoa_CVDwLuyGXPtoxl1iUEwGqB73d1Ocn-09z29dv-o_LM2gnhP7c0gowve4BZWUZzmK4zF92N_hwO681CCJWsP26QeMczc7FBeuEK5SXLbwC2IErW-F-YToSTM1OI_nYwr-_uvN1e3zm/s1600/500x500.png);
+background-repeat: no-repeat;
+content: '';
+opacity: 0.1;
+position: absolute;
+bottom: -30px;
+left: -30px;
+height: 378px;
+width: 500px;
+}
+
+/* =============== NAV =============== */
+.nav {
+ height: var(--header-height);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.nav__img {
+ width: 32px;
+ border-radius: 50%;
+}
+
+.nav__logo {
+ color: var(--title-color);
+ font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+ .nav__menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--container-color);
+  box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+  width: 100%;
+  height: 4rem;
+  padding: 0 1rem;
+  display: grid;
+  align-content: center;
+  border-radius: 1.25rem 1.25rem 0 0;
+  transition: .4s;
+ }
+}
+
+.nav__list,
+.nav__link {
+ display: flex;
+}
+
+.nav__link {
+ flex-direction: column;
+ align-items: center;
+ row-gap: 4px;
+ color: var(--title-color);
+ font-weight: 600;
+}
+
+.nav__list {
+ justify-content: space-around;
+}
+
+.nav__name {
+ font-size: var(--tiny-font-size);
+ /* display: none; /* Minimalist design, hidden labels */
+}
+
+.nav__icon {
+ font-size: 1.5rem;
+width: 1.5rem;
+height: 1.5rem;
+}
+
+/* Active link */
+.active-link {
+ position: relative;
+ color: var(--first-color);
+ transition: .3s;
+}
+
+/* Minimalist design, active link */
+/* .active-link::before{
+  content: '';
+  position: absolute;
+  bottom: -.5rem;
+  width: 4px;
+  height: 4px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+} */
+/* Change background header */
+.scroll-header {
+ box-shadow: 0 1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+}
+
+/* =============== MEDIA QUERIES =============== */
+/* For small devices */
+/* Remove if you choose, the minimalist design */
+@media screen and (max-width: 320px) {
+ .nav__name {
+  display: none;
+ }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+ .nav__list {
+  justify-content: center;
+  column-gap: 3rem;
+ }
+}
+
+@media screen and (min-width: 767px) {
+ body {
+  margin: 0;
+ }
+
+ .section {
+  padding: 7rem 0 2rem;
+ }
+
+ .nav {
+  height: calc(var(--header-height) + 1.5rem);
+  /* 4.5rem */
+ }
+
+ .nav__img {
+  /* display: none; */
+ }
+
+ .nav__icon {
+  display: none;
+ }
+
+ .nav__name {
+  font-size: var(--normal-font-size);
+  /* display: block; */
+  /* Minimalist design, visible labels */
+ }
+
+ .nav__link:hover {
+  color: var(--first-color);
+ }
+
+ /* First design, remove if you choose the minimalist design */
+ .active-link::before {
+  content: '';
+  position: absolute;
+  bottom: -.75rem;
+  width: 4px;
+  height: 4px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+ }
+
+ /* Minimalist design */
+ /* .active-link::before{
+  bottom: -.75rem;
+  } */
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+ .container {
+  margin-left: auto;
+  margin-right: auto;
+ }
+}
+
+ui,li,p {margin-top: 1rem;}
+span{color: #db2238;}
+/* Donate Start */
+.box {
+background-color: #f9f9f9;
+border-radius: 20px;
+border: 1px solid #ddd;
+padding: 40px 60px;
+position: relative;
+}
+
+.box::before {
+background-color: #db2238;
+border-radius: 30px;
+content: '';
+opacity: 0.9;
+position: absolute;
+bottom: -30px;
+right: -30px;
+height: 220px;
+width: 220px;
+z-index: -1;
+box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 6px 6px rgba(0,0,0,0.1);
+}
+
+.box img {
+display: block;
+margin-top: -60px;
+margin-bottom: 10px;
+width: 50px;
+}
+
+.box h2 {
+margin: 0;
+}
+
+.box p {
+line-height: 24px;
+}
+
+/* Donate Over */
+
+/* About Start */
+.container1 {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+flex-wrap: nowrap;
+padding-bottom: 20px;
+}
+
+.container1_foto {
+flex-direction: column;
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+
+}
+
+.nombre{
+padding-top: 10px;
+padding-bottom: 10px;
+font-size: 2rem;
+color: #E51954;
+}
+.container1_mybtn {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+text-align: center;
+gap: 20px;
+}
+
+.mybtn {
+background-color: #f9f9f9;
+min-width: 60%;
+padding: .75rem 1rem;
+align-items: center;
+text-decoration: none;
+color: #000;
+transition-duration: 0.7s;
+font-size: 1rem;
+border-radius: 10px;
+border: 1px solid #ddd;
+cursor: pointer;
+}
+
+.mybtn:hover{
+border: 1px solid #bbb;
+background-color: transparent;
+transition-duration: 0.7s;
+/*#393E46*/
+}
+
+.mybtn:focus {
+outline: 0;
+}
+
+.mybtn:hover .tooltip {
+transform: translate(-50%, 1%);
+opacity: 0.9;
+}
+
+.tooltip {
+background-color: #db2238;
+border-radius: 10px;
+color: #fff;
+font-weight: 300;
+padding: .75rem 1rem;
+position: absolute;
+bottom: 0;
+left: 50%;
+opacity: 0;
+transform: translate(-50%, 50%);
+transition: all 0.5s ease;
+text-align: center;
+white-space: nowrap;
+}
+
+.footer{
+color: #E51954;
+font-size: 0.9rem;
+line-height: 1.5rem;
+}
+
+.animationya {
+overflow: hidden;
+  animation-duration: 2s;
+  animation-name: rotates;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+img{height: 100; width: 100px;}
+
+@keyframes rotates {
+  from {
+transform: rotate3d(0, 1, 0, 340deg);
+
+-webkit-mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+mask-image: linear-gradient(45deg,#000 25%,rgba(0,0,0,.2) 50%,#000 75%);
+-webkit-mask-size: 500%;
+mask-size: 500%;
+-webkit-mask-position: 0;
+mask-position: 0;
+
+  }
+
+  to {
+transform: rotate3d(0, 2, 15, 360deg);
+
+transition: mask-position 2s ease,-webkit-mask-position 2s ease;
+-webkit-mask-position: 120%;
+mask-position: 120%;
+opacity: 1;
+  }
+}
+
+/* About Over */
+
+textarea {
+display: block;
+margin: 1rem;
+width: 70vw;
+height: 20vh;
+padding: 1rem;
+box-sizing: border-box;
+justify-content: center;
+border-radius: 10px;
+border: 1px solid #ddd;
+resize: none;
+	}
+
+/* Copyright Start */
+.copyright {
+flex-direction: column;
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+margin-bottom: 50px;
+}
+
+.copyright img {
+width: 60px;
+height: 80px;
+}
+
+.copyright p{
+text-align: center;
+}
+
+</style>
+
+
+<script>
+// Load Arabic script by default
+window.onload = function() {
+loadScript('./assets/translatorjs/Arabic2Rohingya.js');
+};
+
+// Function to load a script dynamically
+function loadScript(scriptName) {
+// Remove any previously loaded scripts except arabic.js
+const existingScripts = document.querySelectorAll('script[data-dynamic]');
+existingScripts.forEach(script => {
+if (script.src.indexOf('./assets/translatorjs/Arabic2Rohingya.js') === -1) {
+script.remove();
+}
+});
+
+var script = document.createElement('script');
+script.src = scriptName;
+script.type = 'text/javascript';
+script.setAttribute('data-dynamic', 'true');
+document.head.appendChild(script);
+}
+
+// Function to handle language selection
+function handleLanguageSelection(language) {
+if (language === 'arabic') {
+loadScript('https://cdn.jsdelivr.net/gh/rohingya-translator/rohingya-translator.github.io/assets/translatorjs/Arabic2Rohingya.js');
+} else if (language === 'english') {
+loadScript('https://cdn.jsdelivr.net/gh/rohingya-translator/rohingya-translator.github.io/assets/translatorjs/Arabic2Rohingya.js');
+} else if (language === 'rohingya') {
+loadScript('https://cdn.jsdelivr.net/gh/rohingya-translator/rohingya-translator.github.io/assets/translatorjs/Arabic2Rohingya.js');
+}
+}
+</script>
+
+</head>
+<body>
+<!--=============== HEADER ===============-->
+<header class="header" id="header">
+<nav class="nav container">
+<a href="#" class="nav__logo">مترجم روهينغي</a>
+<div class="nav__menu" id="nav-menu">
+<ul class="nav__list">
+<li class="nav__item">
+<a href="#home" class="nav__link active-link"> <svg xmlns="http://www.w3.org/2000/svg" class="nav__icon" viewBox="0 0 24 24"><path fill="currentColor" d="m11.9 22l4.55-12h2.1l4.55 12H21l-1.075-3.05h-4.85L14 22zM4 19l-1.4-1.4l5.05-5.05q-.875-.875-1.588-2T4.75 8h2.1q.5.975 1 1.7t1.2 1.45q.825-.825 1.713-2.313T12.1 6H1V4h7V2h2v2h7v2h-2.9q-.525 1.8-1.575 3.7t-2.075 2.9l2.4 2.45l-.75 2.05l-3.05-3.125zm11.7-1.8h3.6l-1.8-5.1z"/></svg> <span class="nav__name">المترجم</span> </a>
+</li>
+<li class="nav__item">
+<a href="#add" class="nav__link"> <svg xmlns="http://www.w3.org/2000/svg" class="nav__icon" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12m10-8a8 8 0 1 0 0 16a8 8 0 0 0 0-16"/><path d="M13 7a1 1 0 1 0-2 0v4H7a1 1 0 1 0 0 2h4v4a1 1 0 1 0 2 0v-4h4a1 1 0 1 0 0-2h-4z"/></g></svg> <span class="nav__name">إضافة ترجمة</span> </a>
+</li>
+<li class="nav__item">
+<a href="#donate" class="nav__link"> <svg xmlns="http://www.w3.org/2000/svg" class="nav__icon" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"><path d="M16 6.28a2.28 2.28 0 0 1-.662 1.606c-.976.984-1.923 2.01-2.936 2.958a.597.597 0 0 1-.822-.017l-2.918-2.94a2.28 2.28 0 0 1 0-3.214a2.277 2.277 0 0 1 3.232 0L12 4.78l.106-.107A2.276 2.276 0 0 1 16 6.28Z"/><path stroke-linecap="round" d="m18 20l3.824-3.824a.6.6 0 0 0 .176-.424V10.5A1.5 1.5 0 0 0 20.5 9v0a1.5 1.5 0 0 0-1.5 1.5V15"/><path stroke-linecap="round" d="m18 16l.858-.858a.48.48 0 0 0 .142-.343v0a.49.49 0 0 0-.268-.433l-.443-.221a2 2 0 0 0-2.308.374l-.895.895a2 2 0 0 0-.586 1.414V20M6 20l-3.824-3.824A.6.6 0 0 1 2 15.752V10.5A1.5 1.5 0 0 1 3.5 9v0A1.5 1.5 0 0 1 5 10.5V15"/><path stroke-linecap="round" d="m6 16l-.858-.858A.5.5 0 0 1 5 14.799v0c0-.183.104-.35.268-.433l.443-.221a2 2 0 0 1 2.308.374l.895.895a2 2 0 0 1 .586 1.414V20"/></g></svg> <span class="nav__name">الدعم</span> </a>
+</li>
+<li class="nav__item">
+<a href="#about" class="nav__link"> <svg xmlns="http://www.w3.org/2000/svg"class="nav__icon" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M10.5 5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0m.514 2.63a4 4 0 1 0-6.028 0A4 4 0 0 0 2 11.5V13a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1.5a4 4 0 0 0-2.986-3.87M8 9H6a2.5 2.5 0 0 0-2.5 2.5V13a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-1.5A2.5 2.5 0 0 0 10 9z" clip-rule="evenodd"/></svg> <span class="nav__name">المبرمج</span> </a>
+</li>
+<li class="nav__item">
+<a href="#privacy" class="nav__link"> <svg xmlns="http://www.w3.org/2000/svg"class="nav__icon" viewBox="0 0 56 56"><path fill="currentColor" d="M15.555 53.125h24.89c4.852 0 7.266-2.437 7.266-7.336V10.234c0-4.875-2.414-7.359-7.266-7.359h-24.89c-4.828 0-7.266 2.484-7.266 7.36v35.554c0 4.898 2.438 7.336 7.266 7.336m.187-3.773c-2.414 0-3.68-1.29-3.68-3.633V10.305c0-2.32 1.266-3.657 3.704-3.657h24.492c2.437 0 3.68 1.313 3.68 3.657v35.414c0 2.343-1.243 3.633-3.657 3.633Zm3.399-32.907h17.765c.82 0 1.453-.656 1.453-1.476c0-.797-.632-1.406-1.453-1.406H19.141c-.868 0-1.477.609-1.477 1.406c0 .82.61 1.476 1.477 1.476m0 8.18h17.765c.82 0 1.453-.656 1.453-1.477c0-.796-.632-1.406-1.453-1.406H19.141c-.868 0-1.477.61-1.477 1.406c0 .82.61 1.477 1.477 1.477m0 8.18h8.414c.82 0 1.453-.633 1.453-1.43c0-.82-.633-1.453-1.453-1.453H19.14c-.868 0-1.477.633-1.477 1.453c0 .797.61 1.43 1.477 1.43"/></svg> <span class="nav__name">الشروط</span> </a>
+</li>
+</ul>
+</div>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjw2lSUMqwBh2Nd5RibumgBq6qyCHwEk5b8N75xenlISvpclYSWYZSwnjq9Wa0hseZhyphenhypheno24llCIPKFTZLF0-RnH3uXpa3zwSBV6YhYCkl5iy4p3EtAwsxfnM_msVJUaZag3IqdivGZ8z5-_C9FXNgFph940o8VVfnKPagLx3auiLZNl3kFs-YA_csRzVYx/s1600/logopsd.png" alt="شعار مترجم روهينغي" class="nav__img">
+</nav>
+</header>
+<main>
+<!--=============== HOME ===============-->
+<section class="container section section__height" id="home">
+<!--<h2 class="section__title">المترجم</h2>-->
+ <div class="container1 container1_mybtn">
+<s <select onchange="handleLanguageSelection(this.value)">
+        <option value="arabic" selected>عربي إلى روهينغي</option>
+        <option value="english">إنغليزي إلى روهينغي</option>
+        <option value="rohingya">روهينغي إلى إنغليزي</option>
+    </select>
+<div class="translation-box">
+<textarea id="inputText" placeholder="أكتب النص هنا"></textarea>
+</div>
+<button onclick="translateText()" id="btn" class="mybtn">ترجم ( يوت سيب )</button>
+<div id="translated-box">
+<textarea readonly id="outputText" placeholder="كين أسوس"></textarea>
+</div>
+  </div>
+</div>
+</section>
+
+<!--=============== ADD ===============-->
+<section class="container section section__height" id="add">
+<h2 class="section__title">إضافة ترجمة</h2>
+<div class="container1 container1_mybtn">
+<a href="#" class="mybtn">إضافة ترجمة عربية > روهينغية</a>
+<a href="#" class="mybtn">إضافة ترجمة إنغليزية > روهينغية</a>
+<a href="#" class="mybtn">إضافة ترجمة اردو > روهينغية</a>
+<a href="#" class="mybtn">اعتراض وتصحيح ترجمة</a>
+<a href="#" class="mybtn">مشاركة محتوى > مقاطع - صور - رسم</a>
+<a href="#" class="mybtn">تواصل معنا</a>
+</div>
+</section>
+
+<!--=============== DONATE ===============-->
+<section class="container section section__height" id="donate">
+<h2 class="section__title">الدعم</h2>
+<div class="box">
+<div class="container1 container1_mybtn">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisfhKJipwizoO_BCtaUqlyX5lEHLuNcV35jOL_BWQ8Q3qZqD3cRsva0agBij8Fcn0vbCaA7C_FpirQ4IHOX1bIxUwKeU9Hz3ip7lLOElKI9hcRXpocgcYbr-nElvIEIL8XNGqgtPP05Yb5laJBx43Zcs4t7FgGRgqMjGB8pAMraAq0QtJ6o_QYrElTtU1Q/s200/coinsvart-10.png" alt="coins" />
+<h2>دعم المبرمج ماديا</h2>
+<p>دعمك = التحفيز<br/>التحفيز = الإستمرارية</p>
+<a href="https://paypal.me/florinpop17" target="_blank" class="mybtn"><i class="fab fa-paypal"></i>بايبال</a>
+<a href="https://patreon.com/florinpop17" target="_blank" class="mybtn"><i class="fab fa-patreon"></i>بيتكوين</a>
+<a href="https://patreon.com/florinpop17" target="_blank" class="mybtn"><i class="fab fa-patreon"></i>
+<span class="tooltip"> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64"><path fill="#ffdd15" d="M63.37 53.52C53.982 36.37 44.59 19.22 35.2 2.07a3.687 3.687 0 0 0-6.522 0C19.289 19.22 9.892 36.37.508 53.52c-1.453 2.649.399 6.083 3.258 6.083h56.35c1.584 0 2.648-.853 3.203-2.01c.698-1.102.885-2.565.055-4.075"/><path fill="#1f2e35" d="m28.917 34.477l-.889-13.262c-.166-2.583-.246-4.439-.246-5.565c0-1.534.4-2.727 1.202-3.588c.805-.856 1.863-1.286 3.175-1.286c1.583 0 2.646.551 3.178 1.646c.537 1.102.809 2.684.809 4.751c0 1.215-.066 2.453-.198 3.708l-1.19 13.649c-.129 1.626-.404 2.872-.827 3.739c-.426.871-1.128 1.301-2.109 1.301c-.992 0-1.69-.419-2.072-1.257c-.393-.841-.668-2.12-.833-3.836m3.072 18.217c-1.125 0-2.106-.362-2.947-1.093c-.841-.728-1.26-1.748-1.26-3.058c0-1.143.4-2.12 1.202-2.921c.805-.806 1.786-1.206 2.951-1.206s2.153.4 2.977 1.206c.815.801 1.234 1.778 1.234 2.921c0 1.29-.419 2.308-1.246 3.044a4.245 4.245 0 0 1-2.911 1.107"/></svg>
+ لا يتعدى مبلغ التحويل 100 ريال</span>
+تحويل بنكي</a>
+</div>
+</div>
+</section>
+<!--=============== PORTFOLIO ===============-->
+<section class="container section" id="about">
+<h2 class="section__title">مُلْهِم وَمُسْتَلْهِم</h2>
+<div class="container1">
+<div class="container1_foto">
+<div class="animationya">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisT3McQNJkNREOvLBAVfzee-_qffWxeSYtOCtVMdRI1jKcxfFgR1RfzNkhohFwsqXxve9To6thyphenhyphenNzpevkKp3cY200KS8H6oFnzC8UDFauGOUdRZDrNmpB-q5y3KAZkAN0yNmD3wlPdZILTTCWplByEfcDtdKs8F_tr5GNTf6BV3Ej6ZegFERTw7kT38Mgv/s1600/%D8%AA%D9%88%D9%82%D9%8A%D8%B9.png" alt="">
+</div>
+</div>
+<div class="nombre">معاذ أنيس</div>
+
+<div class="container1 footer" style="color:#000;">
+ضيعت وقتي أدوّر الفرص، بينما الفرصة كانت أمامي، الفرصة هي أن أخرج أصواتهم وكلماتهم من رأسي وأشق الطريق! حقا ضربوني بكلماتهم، وأكتشفت أن المشكلة ليست في كلماتهم، بل المشكلة في نفسي وخوفي من الإنتقادات والإستماع إلى الخرافات، وصلت إلى ما وصلت عليه (الحمدلله) بالإستمرار والمحاولة والفشل والتقلبات والإنتكاسات والسعي خلف أهدافي وعدم الإستماع إلى خرافات الآخرين. تحياتي لكل شخص حاول وطاح وطاح وطاح وهو طايح للحين وبيطح وبيطيح وبيطيح ويتعلم ويتعلم ويتعلم ولما يقوم محد يقدر يكون بمستواه 🚀
+</br>
+- معاذ أنيس
+</div>
+
+</div>
+<div class="container1 container1_mybtn">
+<a href="#" class="mybtn">قروب تليقرام</a>
+<a href="#" class="mybtn">قروب واتساب</a>
+<a href="#" class="mybtn">يوتيوب</a>
+<a href="#" class="mybtn">تيك توك</a>
+</div>
+
+</section>
+<!--=============== PRIVACY ===============-->
+<section class="container section" id="privacy">
+<h2 class="section__title">القوانين والأحكام والشروط</h2>
+<p>آخر مراجعة: <b><span>قبل أسبوع</span></b></p>
+<br><hr></hr></br>
+
+<div style="text-align: center;">
+  <h1 style="color:#db2238; box-sizing: border-box; font-size: 2rem; line-height: 1.25; margin: 0px;">القوانين:</h1>
+</div>
+
+<div dir="rtl" style="text-align: right; color:#000000;">
+<h3>قوانين يخص موقع <b><span>مترجم روهينغي</span></b>:</h3>
+<p>بإستخدامك لهذا الموقع فإنك توافق على هذه القوانين:</p>
+<p><b><span>مترجم روهينغي</span></b> الموقع / الخدمة / الترجمة مقدمة من طرف <b>المبرمج كـ فرد</b> وليس لي أي صلة بالمنظمات أو المؤسسات أو أي شركات أو الحكومة أو أي كيان آخر.</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> وهذه الخدمة مجانية بنسبة 100% وأقبل المساندات المالية لإستمرار هذه الترجمة (أنا كمان عندي بطن).</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بالجالية البرماوية الروهينغية أو الميانمارية</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بالمنظمات الإرها*ية</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بالسياسة</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بأي دولة أو حكومة</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بالتجارة</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> لا يتحمل خسارة أي شخص/فرد/مؤسسة ينتج عن استخدام هذه الخدمة</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> لا يتحمل خسارة أي شخص/فرد/مؤسسة ينتج خارج هذا الموقع الرسمي</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b>&nbsp;ليس لهما أي صلة بأي تبرعات أو مواقع خيرية تحدث خارج مترجم روهينغي</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> يقبل المساندات المالية من القنوات الرسمية لأجل إستمرارية هذه الخدمة/الترجمة/الموقع</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b> ليس لهما أي صلة بأي قروبات واتساب أو تلقرام خاصة أو عامة غير القروبات الرسمية للموقع</p>
+<p><b><span>مترجم روهينغي والمبرمج</span></b>&nbsp;لا يتحمل أي عقوبات تنشأ عن أستخدام هذا الموقع</p>
+<p><b><span>مترجم روهينغي والمبرمج لا يطلب أي بيانات شخصية:</span></b> مثل رقم الهوية - الإقامة - <b>اسم الزوجة</b> - كلمات المرور...إلخ يرجى زيارة ساسية الخصوصية بشأن هذا الموضوع</p>
+<p><b><span>المبرمج يقول:</span></b> هذا الموقع جهد شخصي من طرفي دون مساعدات خارجيه، وأنا لا أتحمل أي خسارة تنتج عن هذه الخدمة، ولا أدعم أي قوم/فرد/مؤسسة/حكومة/منظمة بإستخدام هذا الموقع، الذي تعبت عليه وتعبت فيه، وأي شيء خارج هذا الموقع يستعمل/يستخدم فيه اسم الموقع لا أتحمل أي مسؤولية تنتج عن هذه الإستخدمات الغير الرسمية، بإستخدامك لهذه الخدمة أو الترجمة أو الموقع فإنك توافق على القوانين والشروط والأحكام والسياسية الخصوصية.</p>
+<p>القوانين قابل للتغيير والتعديل في أي وقت نراه ضرورياً.</p>
+</div>
+<br><hr></hr></br>
+
+<div style="text-align: center;">
+  <h1 style="color:#db2238; box-sizing: border-box; font-size: 2rem; line-height: 1.25; margin: 0px;">سياسية الخصوصية</h1>
+</div>
+
+<div dir="rtl" style="text-align: right; color:#000000;">
+
+<p>خصوصيتك لها أهمية بالغة بالنسبة لنا ، و سياسة الخصوصية الموجودة في هذه الوثيقة تمثل الخطوط العريضة لأنواع المعلومات الشخصية التي يجمعها <span><b>موقعنا مترجم روهينغي</b></span> وكيفية استخدام هذه المعلومات.</p>
+<p>نحن نستعين بشركات إعلان كطرف ثالث لعرض الإعلانات ، وعندما تزور موقع <span><b>مترجم روهينغي</b></span> فـ إنه يحق لهذه الشركات أن تستخدم معلومات حول زياراتك لهذا الموقع ( باستثناء الاسم أو العنوان أو عنوان البريد الإلكتروني أو رقم الهاتف ) وذلك من أجل تقديم إعلانات حول البضائع والخدمات التي تهمك عن طريق <a href="https://www.doubleclickbygoogle.com/" target="_blank">ملف تعريف الإرتباط</a>.</p>
+<p>نحن في <span><b>مترجم روهينغي</b></span> نستخدم إعلانات Google بصفتها مورِّدًا مالياً خارجياً ، ولذلك تستخدم شركة جوجل&nbsp;<a href="https://www.doubleclickbygoogle.com/" target="_blank">ملفات تعريف الارتباط</a> لعرض الإعلانات على موقعنا.</p>
+<p>وبذلك ستتمكّن Google ، باستخدام ملف تعريف الارتباط <b>DART</b> ، من عرض الإعلانات "حسب الاهتمامات" للمستخدمين استنادًا إلى زياراتهم لموقعنا.</p>
+<p>ويمكن لزوارنا الكرام تعطيل استخدام ملف تعريف الارتباط <b>DART</b> بزيارة <a href="http://www.google.com/policies/technologies/ads/" target="_blank">سياسة الخصوصية الخاصة بإعلانات Google وشبكة المحتوى</a>.</p>
+<b>ملفات الدخول:</b></p>
+<p>شأنها في ذلك شأن معظم خوادم المواقع الأخرى ، ومن هنا فإن موقع <span><b>مترجم روهينغي</b></span> يستخدم نظام ملفات الدخول ، وهذا يشمل بروتوكول الانترنت (عناوين ، نوع المتصفح ، مزود خدمة الانترنت "مقدمي خدمات الانترنت" ، &nbsp;التاريخ / الوقت ، وعدد النقرات لتحليل الاتجاهات).</p>
+<p>من خلال هذه العملية لا يقصد بذلك جمع كل هذه المعلومات في سبيل التلصص على أمور الزوار الشخصية ، وإنما هي أمور تحليلية لأغراض تحسين جودة الإعلانات من قبل <b>Google</b> ، ويضاف إلى ذلك أن جميع هذه المعلومات المحفوظة من قبلنا سرية تماما، وتبقى ضمن نطاق التطوير والتحسين الخاص بموقعنا فقط.</p>
+<p><b>الكوكيز وإعدادات الشبكة:</b></p>
+<p>إن شركة <b>Google</b> تستخدم تقنية الكوكيز لتخزين المعلومات عن إهتمامات الزوار، إلى جانب سجل خاص للمستخدم تسجل فيه معلومات محددة عن الصفحات التي تم الوصول إليها أو زيارتها، وبهذه الخطوة فإننا نعرف مدى اهتمامات الزوار وأي المواضيع الأكثر تفضيلا من قبلهم حتى نستطيع بدورنا تطوير محتوانا الخدمي والمعرفي المناسب لهم.</p>
+<p>نضيف إلى ذلك أن بعض الشركات التي تعلن في <span><b>مترجم روهينغي</b></span> قد تتطلع على الكوكيز وإعدادات الشبكة الخاصة بموقعنا وبكم ،&nbsp;ومن هذه الشركات مثلاً شركة <b>Google</b> وبرنامجها الإعلاني <a href="https://accounts.google.com/ServiceLogin?service=adsense&amp;rm=hide&amp;nui=15&amp;alwf=true&amp;ltmpl=adsense&amp;passive=true&amp;continue=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;followup=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;hl=en_US#identifier" target="_blank">Google AdSense</a> وهي شركة الإعلانات الأولى في موقعنا.</p>
+<p>وبالطبع فمثل هذه الشركات المعلنة والتي تعتبر الطرف الثالث في سياسة الخصوصية فهي تتابع مثل هذه البيانات والإحصائيات عبر بروتوكولات الانترنت لأغراض تحسين جودة إعلاناتها وقياس مدى فعاليتها.</p>
+<p>كما أن هذه الشركات بموجب الاتفاقيات المبرمة معنا يحق لها استخدام وسائل تقنية مثل ( الكوكيز ، و إعدادات الشبكة ، و أكواد برمجية خاصة "جافا سكربت" ) لنفس الأغراض المذكورة أعلاه والتي تتلخص في تطوير المحتوى الإعلاني لهذه الشركات وقياس مدى فاعلية هذه الإعلانات ، من دون أي أهداف أخرى قد تضر بشكل أو بآخر على زوار موقعنا.</p>
+<p>وبالطبع فإن موقع <span><b>مترجم روهينغي</b></span> لا يستطيع الوصول أو السيطرة على هذه الملفات، وحتى بعد سماحك وتفعيلك لأخذها من جهازك (الكوكيز) ، كما أننا غير مسؤولين بأي شكل من الأشكال عن الاستخدام غير الشرعي لها إن حصل ذلك .</p>
+<p>عليك مراجعة سياسة الخصوصية الخاصة بالطرف الثالث في هذه الوثيقة &nbsp;( الشركات المعلنة مثل&nbsp;<a href="https://accounts.google.com/ServiceLogin?service=adsense&amp;rm=hide&amp;nui=15&amp;alwf=true&amp;ltmpl=adsense&amp;passive=true&amp;continue=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;followup=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;hl=en_US#identifier" target="_blank">Google AdSense</a>&nbsp;) أو خوادم الشبكات&nbsp;الإعلانية لمزيد من المعلومات عن ممارساتها وأنشطتها المختلفة .</p>
+لمراجعة سياسة الخصوصية للبرنامج الإعلاني&nbsp;<a href="https://accounts.google.com/ServiceLogin?service=adsense&amp;rm=hide&amp;nui=15&amp;alwf=true&amp;ltmpl=adsense&amp;passive=true&amp;continue=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;followup=https://www.google.com/adsense/gaiaauth2?hl%3Den_US%26subid%3Dww-en_US-et-ads%26sourceid%3Daso%26medium%3Dlink&amp;hl=en_US#identifier" target="_blank">Google AdSense</a>&nbsp;والتابع لشركة <b>Google </b>يرجى النقر <a href="http://www.google.com/policies/technologies/ads/" target="_blank">هنا</a></p>
+<p>يُمكن جمع البيانات لتجديد النشاط التسويقي على الشبكة الإعلانية وشبكة البحث عبر &nbsp;سياسة الإعلانات التي تستهدف الاهتمامات والمواقع الخاصة بالزوار ، ويمكن تعطيل هذه الخاصية من <a href="https://tools.google.com/dlpage/gaoptout/?hl=ar" target="_blank">هنا</a>.</p>
+<p>وأخيرا .. نحن ملزمون ضمن بنود هذه الاتفاقية بان نبين لك كيفية تعطيل خاصية الكوكيز ، حيث يمكنك فعل ذلك من خلال خيارات المتصفح الخاص بك، أو من خلال متابعة &nbsp;<a href="http://www.google.com/policies/technologies/ads/" target="_blank">سياسة الخصوصية الخاصة بإعلانات Google وشبكة المحتوى</a> .</p>
+<p>إذا كنت بحاجة إلى مزيد من المعلومات أو لديك أية أسئله عن سياسة الخصوصية ، لا تتردد في الاتصال بنا.</p>
+<p>بنود هذه السياسة قابلة للتطوير والتغيير في محتواها في أي وقت نراه ضرورياً .</p>
+</div>
+<br><hr></hr></br>
+
+<div style="text-align: center;">
+  <h1 style="color:#db2238; box-sizing: border-box; font-size: 2rem; line-height: 1.25; margin: 0px;">الأحكام والشروط</h1>
+</div>
+<div class="entry-content herald-entry-content" style="color:#000000;">
+<p>هذه الوثيقة تم إعدادها خصيصا لكي نوضح لك ماهي الشروط والاحكام الخاصة بإستخدام <b><span>مترجم روهينغي.</span></b>
+<p>يجب التنويه اولا أنه يجب قراءة هذه الوثيقة بدقة لضمان تفهمك لاحاكمنا وشروطنا، والتي يتوجب عليك إتباعها او قبولها عند استخدامك موقعنا.</p>
+<p>إذا كان لديك سؤالا او استفسارا او تريد المزيد من المعلومات عن الاحكام والشروط الخاصة ب
+<b><span>مترجم روهينغي.</span></b></p>
+<p>فلا تترد بالإتصال بنا وسوف نكون سعداء بإجابة اسئلتك واستفساراتك.</p>
+<p>فيما يلي الشروط والأحكام الخاصة باستخدام. الرجاء قراءة هذه بعناية. إذا كنت بحاجة إلى الاتصال بنا بخصوص أي جانب من جوانب شروط الاستخدام التالية لموقع (مترجم روهينغي)، فيرجى الاتصال بنا.</p>
+<p>من خلال الوصول إلى محتوى (مترجم روهينغي) ، فإنك توافق على الشروط والأحكام المنصوص عليها هنا وتقبل أيضًا سياسة الخصوصية الخاصة بنا. إذا كنت لا توافق على أي من الشروط والأحكام ، يجب عليك عدم الاستمرار في استخدام الموقع والمغادرة على الفور.</p>
+<p>أنت توافق على أنك لن تستخدم الموقع لأي أغراض غير قانونية ، وأنك ستحترم جميع القوانين واللوائح المعمول بها.</p>
+<p>أنت توافق على عدم استخدام موقع (ترجمة روهينغية) بطريقة قد تضعف الأداء أو تفسد أو تتلاعب بالمحتوى أو المعلومات المتوفرة على الموقع أو تقلل من الوظائف العامة للموقع.</p>
+<p>أنت توافق على عدم المساس بأمان موقع (مترجم روهينغي) أو محاولة الوصول إلى المناطق المؤمنة بالموقع أو محاولة الوصول إلى أي معلومات حساسة قد تعتقد أنها موجودة على موقع الويب أو الخادم الذي يتم استضافته فيه.</p>
+<p>أنت توافق على أن تكون مسؤولاً مسؤولية كاملة عن أي مطالبة أو مصاريف أو خسائر أو التزامات أو تكاليف بما في ذلك الرسوم القانونية التي تكبدناها والتي تنشأ عن أي انتهاك للشروط والأحكام الواردة في هذه الاتفاقية والتي تكون قد وافقت عليها إذا واصلت استخدام الموقع.</p>
+<p>يحظر تمامًا الاستنساخ والتوزيع بأي طريقة سواء عبر الإنترنت أو دون الاتصال بالإنترنت. العمل على الموقع والصور والشعارات والنصوص وغيرها من المعلومات المماثلة هي ملك (ما لم ينص على خلاف ذلك).</p>
+<p>تغيير في شروط وأحكام الاستخدام أحتفظ بالحق في إجراء تغييرات ومراجعة شروط وأحكام الاستخدام المذكورة أعلاه.</p>
+</div>
+<br></br><br></br>
+
+<div class="copyright">
+<p>أحتفظ بالحق في إجراء أي تعديلات أو تصحيحات على الموقع في أي وقت دون إشعار مسبق.</p>
+<p> © كافة الحقوق محفوظة لـ <b><span>معاذ</span></b></p>
+<div class="animationya">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisT3McQNJkNREOvLBAVfzee-_qffWxeSYtOCtVMdRI1jKcxfFgR1RfzNkhohFwsqXxve9To6thyphenhyphenNzpevkKp3cY200KS8H6oFnzC8UDFauGOUdRZDrNmpB-q5y3KAZkAN0yNmD3wlPdZILTTCWplByEfcDtdKs8F_tr5GNTf6BV3Ej6ZegFERTw7kT38Mgv/s1600/%D8%AA%D9%88%D9%82%D9%8A%D8%B9.png" alt="Moath Logo">
+</div>
+</div>
+</section>
+</main>
+
+
+<!--=============== MAIN JS ===============-->
+<script>
+window.onload = function() {
+loadScript('./assets/translatorjs/Arabic2Rohingya.js');
+};
+/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+const scrollY = window.pageYOffset
+
+sections.forEach(current =>{
+const sectionHeight = current.offsetHeight,
+sectionTop = current.offsetTop - 50,
+sectionId = current.getAttribute('id')
+
+if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+}else{
+document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+}
+})
+}
+window.addEventListener('scroll', scrollActive)
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+function scrollHeader(){
+const header = document.getElementById('header')
+// When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+</script>
+</body>
 </html>
