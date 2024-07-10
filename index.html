@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--========== BOX ICONS ==========-->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <title>Sumber Jasa</title>
+        <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+        <style>
+        /* About Start */
+        .container1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding-bottom: 20px;
+        }
+
+        .nombre{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 2rem;
+            color: #E51954;
+        }
+        .container1_mybtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .mybtn {
+            background-color: #f9f9f9;
+            min-width: 60%;
+            padding: .75rem 1rem;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+            transition-duration: 0.7s;
+            font-size: 1rem;
+            border-radius: 10px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        }
+
+        .mybtn:hover{
+        border: 1px solid #bbb;
+            background-color: transparent;
+            transition-duration: 0.7s;
+        /*#393E46*/
+        }
+
+        .mybtn:focus {
+           outline: 0;
+        }
+
+        .mybtn:hover .tooltip {
+           transform: translate(-50%, 1%);
+           opacity: 0.9;
+        }
+
+        .tooltip {
+           background-color: #db2238;
+           border-radius: 10px;
+           color: #fff;
+           font-weight: 300;
+           padding: .75rem 1rem;
+           position: absolute;
+           bottom: 0;
+           left: 50%;
+           opacity: 0;
+           transform: translate(-50%, 50%);
+           transition: all 0.5s ease;
+           text-align: center;
+           white-space: nowrap;
+        }
+
+        /* About Over */
+
+        textarea {
+           display: block;
+           margin: 1rem;
+           width: 70vw;
+           height: 20vh;
+           padding: 1rem;
+           box-sizing: border-box;
+           justify-content: center;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        resize: none;
+        	}
+        </style>
+    </head>
+    <body>
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top"> <i class='bx bx-up-arrow-alt scrolltop__icon'></i> </a>
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo" style="font-size: 30px;">مترجم روهينغي</a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">الرئيسية</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#decoration" class="nav__link">الترجمة</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#accessory" class="nav__link">القاموس</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#pembayaran" class="nav__link">اللغات</a>
+                        </li>
+                        <li>
+                            <i class='bx bx-toggle-left change-theme' id="theme-button"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__img">
+                        <img src="assets/img/orang2.png" alt="">
+                    </div>
+                    <div class="home__data">
+                        <h1 class="home__title">مترجم روهينغي</h1>
+                        <p class="home__description">إعادة إحياء اللغة&nbsp;للحفاظ على التراث، وتمكين الأجيال القادمة.</p>
+                        <a href="https://wa.me/082145764680" class="button">دعم المبرمج</a>
+                    </div>
+                </div>
+            </section>
+            <!--========== SHARE ==========-->
+            <section class="share section bd-container" id="share">
+                <div class="share__container bd-grid">
+                    <div class="share__data">
+                        <h2 class="section-title-center">وصف عن المترجم:</h2>
+                        <p class="share__description">موقع مترجم روهينغي لتعلم اللغة الروهينغية والقاموس والدورات والاختبارات للغة الروهينغية.</p>
+                        <p class="share__description">إنه أول مشروع للترجمة الروهينغية على الإطلاق، مما يوفر مورداً لا يقدر بثمن للمجتمع الروهينغي للتواصل مع العالم والحفاظ على لغتهم. يمكن للمستخدمين بسهولة ترجمة الكلمات والعبارات، والبحث عن التعريفات في القاموس، والالتحاق بدورات إلكترونية لتعلم أشياء جديدة، واختبار معرفتهم من خلال اختبارات تفاعلية.</p>
+                        <a href="https://wa.me/082145764680" class="button">دعم المبرمج</a>
+                    </div>
+                    <div class="share__img">
+                        <img src="assets/img/orang.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <!--========== DECORATION ==========-->
+            <section class="decoration section bd-container" id="decoration">
+                <h2 class="section-title">الترجمة</h2>
+                <div class="container1 container1_mybtn">
+                <div class="translation-box">
+                           <textarea id="input-text" placeholder="أكتب النص هنا"></textarea>
+                       </div>
+                <button id="btn" class="mybtn">ترجم ( يوت سيب )</button>
+                       <div id="translated-box">
+                           <textarea readonly id="output-text" placeholder="كين أسوس"></textarea>
+                       </div>
+                     </div>
+            </section>
+            <!--========== ACCESSORIES ==========-->
+            <section class="accessory section bd-container" id="accessory">
+                <h2 class="section-title">القاموس</h2>
+
+            </section>
+            <!-- Pembayaran -->
+            <section class="accessory section bd-container" id="pembayaran">
+                <h2 class="section-title">اللغات:</h2>
+                <div class="accessory__container bd-grid">
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">روهينغاروبي</h3>
+                    </div>
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">العربية</h3>
+                    </div>
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">الإنغليزية</h3>
+                        <h3 class="accessory__title" style="text-align: center;">الإنغليزية</h3>
+                    </div>
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">روهينغاليش</h3>
+                    </div>
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">أردو (قريبا)</h3>
+                    </div>
+                    <div class="accessory__content">
+                        <h3 class="accessory__title" style="text-align: center;">بنغالي</h3>
+                    </div>
+                </div>
+            </section>
+            <!--========== fAQ ==========-->
+            <section class="send section" id="faq">
+                <div class="send__container bd-container bd-grid">
+                    <div class="send__content">
+                        <h2 class="section-title-center send__title">من أنا؟</h2>
+                        <p class="send__description">الإجابة الطويلة والمملة هنا</p>
+                        <form action="">
+                            <div class="send__direction">
+                                <a href="https://wa.me/082145764680" class="button">المتجر</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="send__img">
+                        <img src="assets/img/faq.png">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--========== FOOTER ==========-->
+        <footer class="footer section">
+            <div class="footer__container bd-container bd-grid">
+                <div class="footer__content">
+                    <h3 class="footer__title"> <a href="#" class="footer__logo">مترجم روهينغي</a> </h3>
+                    <p class="footer__description">لبيع المنتجات و الخدمات الرقمية و متخصصين في تسهيل المواقع والخدمات الإلكترونية والتجارة والتسويق الإلكتروني.<br><br> <strong>مترجم روهينغي</strong>  2024</p>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">الروابط الداخلية</h3>
+                    <ul>
+                        <li>
+                            <a href="#decoration" class="footer__link">الخدمات</a>
+                        </li>
+                        <li>
+                            <a href="#accessory" class="footer__link">المنتجات</a>
+                        </li>
+                        <li>
+                            <a href="#pembayaran" class="footer__link">اللغات</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">الروابط</h3>
+                    <ul>
+                        <li>
+                            <a href="#" class="footer__link">عنا</a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="footer__link">الأسئلة الشائعة</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">الشروط والأحكام</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">تابعنا</h3>
+                    <a href="https://wa.me/082145764680" class="footer__social"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="https://www.instagram.com/sumber.jasa/" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
+                </div>
+            </div>
+            <p class="footer__copy">&copy; كافة الحقوق محفوظة ل مترجم روهينغي</p>
+        </footer>
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <!--========== MAIN JS ==========-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
