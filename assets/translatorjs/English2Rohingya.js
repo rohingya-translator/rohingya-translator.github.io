@@ -1,8 +1,8 @@
-function translateText1() {
-let inputText1 = document.getElementById('inputText1').value;
-let outputText1 = translate(inputText1); // Replace with your translation function
+function translateText() {
+let inputText = document.getElementById('inputText').value;
+let outputText = translate(inputText); // Replace with your translation function
 
-document.getElementById('outputText1').value = outputText1;
+document.getElementById('outputText').value = outputText;
 }
 
 // Example translation function (replace with your actual translation logic)
