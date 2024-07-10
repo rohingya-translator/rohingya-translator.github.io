@@ -9,8 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-
-
 <script>
 function show(shown, hidden) {
   document.getElementById(shown).style.display='block';
@@ -520,11 +518,10 @@ text-align: center;
 <section class="container section section__height" id="home">
 <!--<h2 class="section__title">المترجم</h2>-->
 
-<a class="mybtn" href="#" onclick="return show('Page1','Page2');">Show Entry</a>
-    <a class="mybtn" href="#" onclick="return show('Page2','Page1');">Show Table</a>
+<a class="mybtn" href="#" onclick="return show('Page1','Page2');">عربي إلى روهينغي</a>
+    <a class="mybtn" href="#" onclick="return show('Page2','Page1');">English To Rohingya</a>
 
 <div id="Page1">
-<script src="assets/translatorjs/Arabic2Rohingya.js"></script>
  <div class="container1 container1_mybtn">
 	 
 <div class="translation-box">
@@ -547,7 +544,7 @@ text-align: center;
 </div>
 <button onclick="translateText1()" id="btn" class="mybtn">Translate</button>
 <div id="translated-box">
-<textarea readonly id="outputText1" placeholder="..."></textarea>
+<textarea readonly id="outputText1" placeholder="translated text here..."></textarea>
 </div>
   </div>
 </div>
