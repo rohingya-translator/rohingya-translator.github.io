@@ -1,16 +1,19 @@
-    document.addEventListener("DOMContentLoaded", function() {
-        var modal = document.getElementById("modal");
-        var closeButton = document.getElementById("close-button");
+document.addEventListener("DOMContentLoaded", function() {
+var modal = document.getElementById("modal");
+var closeButton = document.getElementById("close-button");
 
-        modal.style.display = "flex";
+// Show the modal when the page loads
+modal.style.display = "flex";
 
-        closeButton.onclick = function() {
-            modal.style.display = "none";
-        }
+// Close the modal when the close button is clicked
+closeButton.onclick = function() {
+modal.style.display = "none";
+}
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    });
+// Close the modal when clicking outside the modal content
+window.onclick = function(event) {
+if (event.target == modal) {
+modal.style.display = "none";
+}
+}
+});
