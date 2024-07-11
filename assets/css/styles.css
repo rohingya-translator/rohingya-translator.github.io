@@ -634,6 +634,7 @@ img {
   }
 }
 
+/*logo at bottom*/
 .smalllogo{
 display: flex;
 justify-content: center;
@@ -644,7 +645,7 @@ margin: 0;
 width: 70px;
 height:80px;
 }
-
+/*move logo at bottom*/
 .animationya {
    overflow: hidden;
   animation-duration: 2s;
@@ -675,7 +676,7 @@ height:80px;
     opacity: 1;
   }
 }
-
+/*mutargim*/
   .container1 {
  display: flex;
  align-items: center;
@@ -748,7 +749,7 @@ font: Rubik;
 text-align: center;
 margin-bottom: 20px;
 }
-
+/*dictonary*/
 table {
 width: 100%;
 border-collapse: separate;
@@ -788,7 +789,7 @@ border-radius: 10px;
 background: rgba(0, 0, 0, 0.04);
 }
 
-
+/*footer donate*/
 /* SOCIAL PANEL CSS */
 .social-panel-container {
   position: fixed;
@@ -934,3 +935,80 @@ background: rgba(0, 0, 0, 0.04);
     font-family: Rubik;
   }
 }
+
+    /* Modal container */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.5s; /* Animation */
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .modal-content {
+        background-color: #1f1f1f;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        width: 80%; /* Could be more or less, depending on screen size */
+        height: 65%;
+        color: #fff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        animation: slideIn 0.5s; /* Animation */
+    }
+
+    @keyframes slideIn {
+        from {transform: translateY(-100px);}
+        to {transform: translateY(0);}
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .modal-footer {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    .modal-body {
+        overflow-y: auto;
+        flex-grow: 1;
+        padding: 10px 0;
+    }
+
+    .modal-body p {
+        text-align: center;
+    }
+    .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
