@@ -8769,12 +8769,12 @@ const pageData = data.slice(start, end);
 
 pageData.forEach(entry => {
 const row = document.createElement("tr");
-const wordCell = document.createElement("td");
-wordCell.textContent = entry.word;
-const definitionCell = document.createElement("td");
-definitionCell.textContent = entry.definition;
-row.appendChild(wordCell);
-row.appendChild(definitionCell);
+const wdCell = document.createElement("td");
+wdCell.textContent = entry.wd;
+const dfCell = document.createElement("td");
+dfCell.textContent = entry.df;
+row.appendChild(wdCell);
+row.appendChild(dfCell);
 tableBody.appendChild(row);
 });
 
@@ -8825,8 +8825,8 @@ renderTable(filteredData, currentPage);
 function searchDictionary() {
 const query = document.getElementById("search-input").value.toLowerCase();
 filteredData = dictionaryData.filter(entry =>
-entry.word.toLowerCase().includes(query) ||
-entry.definition.toLowerCase().includes(query)
+entry.wd.toLowerCase().includes(query) ||
+entry.df.toLowerCase().includes(query)
 );
 currentPage = 1;
 renderTable(filteredData, currentPage);
