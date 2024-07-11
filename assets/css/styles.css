@@ -906,7 +906,7 @@ background: rgba(0, 0, 0, 0.04);
   height: 60px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 16px;
-  font: Rubik;
+  font-family: Rubik;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -931,5 +931,6 @@ background: rgba(0, 0, 0, 0.04);
   
   .floating-btn {
     left: 10px;
+    font-family: Rubik;
   }
 }
