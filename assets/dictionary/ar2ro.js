@@ -8769,12 +8769,12 @@ const pageData = data.slice(start, end);
 
 pageData.forEach(entry => {
 const row = document.createElement("tr");
-const wdCell = document.createElement("td");
-wdCell.textContent = entry.wd;
-const dfCell = document.createElement("td");
-dfCell.textContent = entry.df;
-row.appendChild(wdCell);
-row.appendChild(dfCell);
+const wordCell = document.createElement("td");
+wordCell.textContent = entry.word;
+const definitionCell = document.createElement("td");
+definitionCell.textContent = entry.definition;
+row.appendChild(wordCell);
+row.appendChild(definitionCell);
 tableBody.appendChild(row);
 });
 
@@ -8785,16 +8785,35 @@ function renderPagination(totalItems, currentPage) {
 const paginationContainer = document.getElementById("pagination");
 paginationContainer.innerHTML = "";
 const totalPages = Math.ceil(totalItems / pageSize);
+const maxPagesToShow = 3;
+let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
-for (let i = 1; i <= totalPages; i++) {
+if (currentPage > 1) {
+const prevButton = document.createElement("span");
+prevButton.textContent = "السابق";
+prevButton.classList.add("page-number");
+prevButton.onclick = () => changePage(currentPage - 1);
+paginationContainer.appendChild(prevButton);
+}
+
+for (let i = startPage; i <= endPage; i++) {
 const pageNumber = document.createElement("span");
 pageNumber.textContent = i;
 pageNumber.classList.add("page-number");
 if (i === currentPage) {
-pageNumber.style.fontWeight = "bold";
+    pageNumber.style.fontWeight = "bold";
 }
 pageNumber.onclick = () => changePage(i);
 paginationContainer.appendChild(pageNumber);
+}
+
+if (currentPage < totalPages) {
+const nextButton = document.createElement("span");
+nextButton.textContent = "التالي";
+nextButton.classList.add("page-number");
+nextButton.onclick = () => changePage(currentPage + 1);
+paginationContainer.appendChild(nextButton);
 }
 }
 
@@ -8806,8 +8825,8 @@ renderTable(filteredData, currentPage);
 function searchDictionary() {
 const query = document.getElementById("search-input").value.toLowerCase();
 filteredData = dictionaryData.filter(entry =>
-entry.wd.toLowerCase().includes(query) ||
-entry.df.toLowerCase().includes(query)
+entry.word.toLowerCase().includes(query) ||
+entry.definition.toLowerCase().includes(query)
 );
 currentPage = 1;
 renderTable(filteredData, currentPage);
