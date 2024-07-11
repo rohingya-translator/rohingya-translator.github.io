@@ -898,11 +898,11 @@ background: rgba(0, 0, 0, 0.04);
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background-color: #007bff;
+  background-color: #db2238;
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 60px;
+  border-radius: 10px;
+  width: 120px;
   height: 60px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 24px;
@@ -914,7 +914,8 @@ background: rgba(0, 0, 0, 0.04);
 
 .floating-btn:hover {
   background-color: #ffffff;
-  color: #001F61;
+  color: #000000;
+  border: 1px solid #ddd;
 }
 
 .floating-btn:focus {
