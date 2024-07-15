@@ -8786,7 +8786,7 @@ function renderPagination(totalItems, currentPage) {
 const paginationContainer = document.getElementById("pagination");
 paginationContainer.innerHTML = "";
 const totalPages = Math.ceil(totalItems / pageSize);
-const maxPagesToShow = 3;
+const maxPagesToShow = 10;
 let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
 let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
