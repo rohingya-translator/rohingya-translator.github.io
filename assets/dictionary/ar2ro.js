@@ -7598,13 +7598,13 @@ function renderPagination(totalItems, currentPage) {
 const paginationContainer = document.getElementById("pagination");
 paginationContainer.innerHTML = "";
 const totalPages = Math.ceil(totalItems / pageSize);
-const maxPagesToShow = 3;
+const maxPagesToShow = 10;
 let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
 let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
 if (currentPage > 1) {
 const prevButton = document.createElement("span");
-prevButton.textContent = "Previous";
+prevButton.textContent = "السابق";
 prevButton.classList.add("page-number");
 prevButton.onclick = () => changePage(currentPage - 1);
 paginationContainer.appendChild(prevButton);
@@ -7623,7 +7623,7 @@ paginationContainer.appendChild(pageNumber);
 
 if (currentPage < totalPages) {
 const nextButton = document.createElement("span");
-nextButton.textContent = "Next";
+nextButton.textContent = "التالي";
 nextButton.classList.add("page-number");
 nextButton.onclick = () => changePage(currentPage + 1);
 paginationContainer.appendChild(nextButton);
