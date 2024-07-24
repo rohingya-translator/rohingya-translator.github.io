@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl">
+<html dir="rtl" class="ar">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org/",
@@ -43,7 +43,7 @@
 
     <head>
         <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no"/>
         <!--========== BOX ICONS ==========-->
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <meta name="google-site-verification" content="39eePsAFOLXQkU6x2En5pnILAkzaheoah15tqsEpBfc" />
@@ -147,7 +147,7 @@
             <section class="home" id="home">
                 <div class="home__container bd-container bd-grid">
                     <div class="home__img">
-                        <img src="assets/img/logo.png" alt="logo">
+                        <img src="assets/img/main.png" alt="logo">
                     </div>
                     <div class="home__data">
                         <h1 class="home__title">أول&nbsp;<span style="color:#db2238;">مترجم</span> روهينغي</h1>
@@ -166,7 +166,7 @@
                         <a href="https://t.me/moaz_anis" target="_blank" class="button">دعم المطور مادياً ومعنوياً ولغوياً</a>
                     </div>
                     <div class="share__img">
-                        <img src="assets/img/arkani.png" alt="programmer">
+                        <img src="assets/img/logo.png" alt="programmer">
                     </div>
                 </div>
             </section>
@@ -274,34 +274,14 @@
                     <div class="send__content">
                         <h2 class="section-title-center send__title">حيّاك الله في المجتمع!</h2>
                         <p class="send__description">أنت مترجم؟ أو حاب تشارك معنا بكلمات وصور ومقاطع ورسومات؟ أو مهتم باللغة مثلي؟ تعال نحييك تحية طيبة! وش اللي تنتظر هيّا بنا لنأخذ اللغة والقوم إلى السماء مع بعض.</p>
-                        <form action="">
-                            <div class="send__direction">
-                                <a href="https://t.me/rohingya_translator" target="_blank" class="button">تعال يوت سيب</a>
-                            </div>
-                        </form>
+<a href="https://t.me/rohingya_translator" target="_blank" class="button">تعال يوت سيب</a>
                     </div>
-                    <div class="send__img">
-                        <img src="assets/img/moath.png" alt="Moaz Anis">
-                    </div>
+                    <!--<div class="send__img">
+                        <img src="assets/img/main.png" alt="Moaz Anis">
+                    </div>-->
                 </div>
             </section>
-            
-            <!-- SOCIAL PANEL HTML -->
-            <div class="social-panel-container">
-                <div class="social-panel">
-                    <p>بكل فخر  ♡ من طرف <a target="_blank" href="https://t.me/moaz_anis">معاذ أنيس</a></p>
-                    <button class="close-btn">X</button>
-                    <h4>تقدر تتواصل معايا لدعمي مادياً أو معنوياً أو لغوياً، خلك حريص ما عندنا قروب واتساب</h4>
-                    <ul>
-                        <li>
-                            <a href="https://t.me/moaz_anis" target="_blank"> <i class="bx bxl-telegram"></i> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <button class="floating-btn">
-                دعم المبرمج
-</button>
+
         </main>
         <!--========== FOOTER ==========-->
         <footer class="footer section">
@@ -341,18 +321,68 @@
                 </div>
                 <div class="footer__content">
                     <h3 class="footer__title">كن جزء من المجتمع:</h3>
-                    <a href="https://t.me/rohingya_translator" target="_blank" class="footer__social"><i class='bx bxl-telegram'></i></a>
+                    <a href="https://t.me/rohingya_translator" target="_blank" class="footer__social" title="قروب المجتمع"><i class='bx bxl-telegram'></i></a>
                 </div>
             </div>
-            <p class="footer__copy"><a href="https://t.me/moaz_anis" class="footer__link"><b>معاذ انيس</b></a> هو <b>اللي صنعني</b></p>
+            <p class="footer__copy"><a href="https://t.me/moaz_anis" class="footer__link" title="تيلغرام المبرمج"><b>معاذ انيس</b></a> هو <b>اللي صنعني</b></p>
             <div class="smalllogo animationya">
                 <img src="assets/img/moath.png" alt="Moaz Anis">
             </div>
         </footer>
-        <!--========== SCROLL REVEAL ==========-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+        <!--========== SCROLL REVEAL ==========
+        <script src="https://unpkg.com/scrollreveal"></script>-->
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const lazyImages = document.querySelectorAll("img[data-src]");
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.removeAttribute('data-src');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers that do not support IntersectionObserver
+                let lazyLoadThrottleTimeout;
+                function lazyLoad() {
+                    if (lazyLoadThrottleTimeout) {
+                        clearTimeout(lazyLoadThrottleTimeout);
+                    }
+
+                    lazyLoadThrottleTimeout = setTimeout(function () {
+                        let scrollTop = window.pageYOffset;
+                        lazyImages.forEach(function (img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                        });
+                        if (lazyImages.length == 0) {
+                            document.removeEventListener("scroll", lazyLoad);
+                            window.removeEventListener("resize", lazyLoad);
+                            window.removeEventListener("orientationChange", lazyLoad);
+                        }
+                    }, 20);
+                }
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationChange", lazyLoad);
+            }
+        });
+
+        </script>
         <script src="assets/alert/alert.js"></script>
     </body>
 </html>
