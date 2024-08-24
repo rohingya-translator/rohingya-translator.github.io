@@ -116,7 +116,7 @@
         <main class="l-main">
 
 
-            <!-- modal -->
+            <!-- modal
             <div id="modal" class="modal">
 <div class="modal-content">
 <div class="modal-header">
@@ -145,7 +145,7 @@
 <a href="https://t.me/rohingya_translator" target="_blank" class="button">دعم المجتمع بالترجمة</a>
 </div>
 </div>
-</div>
+</div> -->
             <!--========== HOME ==========-->
             <section class="home" id="home">
                 <div class="home__container bd-container bd-grid">
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="decoration__container bd-grid">
+                <!--<div class="decoration__container bd-grid">
                     <div class="decoration__data">
                         <img src="assets/img/logosmall.png" alt="Rohingya" class="decoration__img">
                         <h3 class="decoration__title">الروهينغية إلى العربية</h3>
@@ -216,7 +216,7 @@
                         <li style="list-style-type: none;">بنغالي إلى روهينغي</li>
                         <a href="" class="button button-link">قريبا</a>
                     </div>
-                </div>
+                </div>-->
             </section>
             <!--========== ACCESSORIES ==========-->
             <section class="accessory section bd-container" id="Dictionary">
@@ -234,11 +234,11 @@
                         <span class="accessory__category">مستقر</span>
                         <a href="dictionaryAr2Ro.html" class="button button-link">فتح القاموس</a>
                     </div>
-                    <div class="accessory__content">
+                    <!--<div class="accessory__content">
                         <img src="assets/img/logosmall.png" alt="Urdu Dictionary" class="accessory__img">
                         <h3 class="accessory__title">الأردو إلى الروهينغية</h3>
                         <span class="accessory__category">قريبا</span>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <!-- Pembayaran -->
@@ -261,14 +261,14 @@
                         <img src="assets/img/rasmall.png" alt="Rohingya Rubik" style="padding-top: 50px;" class="accessory__img">
                         <h3 class="accessory__title" style="text-align: center;">الروهينغاروبيك</h3>
                     </div>
-                    <div class="accessory__content">
+                    <!--<div class="accessory__content">
                         <img src="assets/img/usmall.png" alt="Urdu" style="padding-top: 50px;" class="accessory__img">
                         <h3 class="accessory__title" style="text-align: center;">الأردو (قريبا)</h3>
                     </div>
                     <div class="accessory__content">
                         <img src="assets/img/bsmall.png" alt="Bengali" style="padding-top: 50px;" class="accessory__img">
                         <h3 class="accessory__title" style="text-align: center;">البنغالية (قريبا)</h3>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <!--========== fAQ ==========-->
@@ -336,56 +336,6 @@
         <script src="https://unpkg.com/scrollreveal"></script>-->
         <!--========== MAIN JS ==========-->
         <script src="assets/js/main.js"></script>
-        <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const lazyImages = document.querySelectorAll("img[data-src]");
-
-            if ("IntersectionObserver" in window) {
-                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.removeAttribute('data-src');
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function (lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            } else {
-                // Fallback for browsers that do not support IntersectionObserver
-                let lazyLoadThrottleTimeout;
-                function lazyLoad() {
-                    if (lazyLoadThrottleTimeout) {
-                        clearTimeout(lazyLoadThrottleTimeout);
-                    }
-
-                    lazyLoadThrottleTimeout = setTimeout(function () {
-                        let scrollTop = window.pageYOffset;
-                        lazyImages.forEach(function (img) {
-                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                                img.src = img.dataset.src;
-                                img.removeAttribute('data-src');
-                            }
-                        });
-                        if (lazyImages.length == 0) {
-                            document.removeEventListener("scroll", lazyLoad);
-                            window.removeEventListener("resize", lazyLoad);
-                            window.removeEventListener("orientationChange", lazyLoad);
-                        }
-                    }, 20);
-                }
-
-                document.addEventListener("scroll", lazyLoad);
-                window.addEventListener("resize", lazyLoad);
-                window.addEventListener("orientationChange", lazyLoad);
-            }
-        });
-
-        </script>
         <script src="assets/alert/alert.js"></script>
     </body>
 </html>
